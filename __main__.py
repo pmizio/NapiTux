@@ -8,10 +8,11 @@ Created on 13-12-2012
 
 import wx, os, re
 #from optparse import OptionParser
-from TrayIcon import *
-from NapiProjekt import *
-from AnimatedText import *
-from CmdParser import *
+from TrayIcon import MainWindow
+from NapiProjekt import NapiProjekt
+#from AnimatedText import *
+from CmdParser import CmdParser
+from Paths import completePath
 
 def main():
     parser = CmdParser("NapiTux", "", "0.1beta")
