@@ -42,11 +42,10 @@ def main():
                         print("Pobrano napisy do: " + os.path.basename(filename) + "!")
                     else:
                         print("Nie znaleziono napisów do: " + os.path.basename(filename) + "!")
- 
- 
-    app = wx.App(redirect=False)
-    MainWindow()    
-    app.MainLoop()
+    else:   
+        app = wx.App(redirect=False)
+        MainWindow()    
+        app.MainLoop()
     '''app = wx.App(redirect=False)
     frame = MyForm().Show()
     app.MainLoop()'''
