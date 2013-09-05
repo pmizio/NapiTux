@@ -44,6 +44,7 @@ class NapiProjekt(object):
 
         try:
             DOMTree = minidom.parseString(response.read())
+            
             cNodes = DOMTree.childNodes
             if(cNodes[0].getElementsByTagName("status") != []):
                 open(self.name[:self.name.rfind(".")] + ".txt", "w").write(base64.b64decode(cNodes[0].getElementsByTagName("subtitles")[0].getElementsByTagName("content")[0].childNodes[0].data))
