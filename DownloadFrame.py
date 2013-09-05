@@ -48,7 +48,6 @@ class DownloadFrame(wx.Frame):
         self.list_ctrl.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.OnActiveItem)
         self.list_ctrl.Bind(wx.EVT_LIST_ITEM_SELECTED, self.OnSelectItem)
        
-
         #self.gauge = wx.Gauge(panel, 0, 100, size=(_size[0]-15, 25), pos=(5, _size[1]-60))
         #self.btn = wx.Button(panel, wx.ID_OK, label="OK", size=(80, 25), pos=(140, _size[1]-30))
         
