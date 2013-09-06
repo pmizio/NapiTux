@@ -26,7 +26,10 @@ def main():
         print e
 
     opt = parser.values_dict
-    
+
+    if("~" in opt["target"]):
+        opt["target"] = os.path.expanduser(opt["target"])
+
     if(opt["console"]):
         if(os.path.isfile(opt["target"])):
             napi = NapiProjekt(opt["target"])
