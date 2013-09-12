@@ -47,7 +47,7 @@ def main():
             sub = Subtitles(opt["sub"])
             print sub.getType()
         elif(opt["conv"] != ""):
-            SubFactory.convert(opt["conv"], fps=23.976, totype=SubTypesEnum.TYPE_SUBRIP)
+            SubFactory.convert(opt["conv"], fps=23.976, totype=SubTypesEnum.TYPE_MICRODVD)
         elif(os.path.isfile(opt["target"])):
             napi = NapiProjekt(opt["target"])
             if(napi.downloadSubtitles(opt["language"] == "ENG")):
