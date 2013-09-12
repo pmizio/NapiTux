@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import os, re, datetime
+import os, re
 
 class SubTypesEnum(object):
     """docstring for TypesEnum"""
@@ -35,8 +35,14 @@ class Subtitles(object):
             
         return SubTypesEnum.TYPE_NONE
 
+    def save(self):
+        """docstring for save"""
+        f = open("test.srt", "w")
+        f.write(self.data)
+        f.close()
+"""
     def framateToTime(self, framate_str, fps):
-        """docstring for framesToTime"""
+        docstring for framesToTime
         sec = int(int(framate_str)/fps)
         if(sec != 0):
             tmp = str(datetime.timedelta(seconds=sec)) 
@@ -47,10 +53,10 @@ class Subtitles(object):
             return tmp + "," + str((int(framate_str)/fps)%sec)[2:5]
         else:
             return "00:00:00,000"
+"""
 
-    def convert(self, target, fps=None):
-        """docstring for convert"""
-       
+
+"""
         tmp = ""
         if(self.type == SubTypesEnum.TYPE_MICRODVD and target == SubTypesEnum.TYPE_SUBRIP):
             for i,v in enumerate(self.data.splitlines(), start=1):
@@ -62,8 +68,5 @@ class Subtitles(object):
         self.type = target
         self.data = tmp
 
-    def save(self):
-        """docstring for save"""
-        f = open("test.srt", "w")
-        f.write(self.data)
-        f.close()
+"""
+

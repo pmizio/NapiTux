@@ -13,7 +13,7 @@ from NapiProjekt import NapiProjekt
 #from AnimatedText import *
 from CmdParser import CmdParser
 from Paths import completePath
-from Subtitles import *
+from subformats.SubFactory import *
 
 def main():
     parser = CmdParser("NapiTux", "", "0.1beta")
@@ -47,9 +47,7 @@ def main():
             sub = Subtitles(opt["sub"])
             print sub.getType()
         elif(opt["conv"] != ""):
-            sub = Subtitles(opt["conv"])
-            sub.convert(SubTypesEnum.TYPE_SUBRIP, 23.976)
-            sub.save()
+            SubFactory.convert(opt["conv"], fps=23.976, totype=SubTypesEnum.TYPE_SUBRIP)
         elif(os.path.isfile(opt["target"])):
             napi = NapiProjekt(opt["target"])
             if(napi.downloadSubtitles(opt["language"] == "ENG")):
