@@ -57,12 +57,15 @@ class CmdParser(object):
                 flag = []
             elif(it[0:2] == "--"):
                 m = re.match(r"--(.*)=(.*)", it)
+                throw = True
                 for i,v in self.options_dict.iteritems():
                     if(m.group(1) == v[1]):
                         self.values_dict[i] = m.group(2)
                         opt = opt[1:]
+                        throw = False
                         break
                 
-                raise Exception("Unknown option --" + m.group(1) + "!")
+                if(throw):
+                    raise Exception("Unknown option --" + m.group(1) + "!")
             else:
                 raise Exception("Unknown option " + it + "!")

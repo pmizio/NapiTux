@@ -73,6 +73,7 @@ class NapiProjekt(object):
             return False
 
         try:
+            #print response.read()
             DOMTree = minidom.parseString(response.read())
             cNodes = DOMTree.childNodes[0].getElementsByTagName("movie")
             
@@ -93,6 +94,7 @@ class NapiProjekt(object):
                 self.info["size"] = cNodes[0].getElementsByTagName("rozmiar_pliku_z_jednostka")[0].childNodes[0].data
                 self.info["duration"] = cNodes[0].getElementsByTagName("czas_trwania_sformatowany")[0].childNodes[0].data
                 self.info["resolution"] = cNodes[0].getElementsByTagName("rozdz_X")[0].childNodes[0].data + "x" + cNodes[0].getElementsByTagName("rozdz_Y")[0].childNodes[0].data
+                self.info["fps"] = cNodes[0].getElementsByTagName("fps")[0].childNodes[0].data
         except Exception, e:
 			sys.stderr.write(e.message)
 			return False
